@@ -1,6 +1,5 @@
 let mapleader=','
 
-" inoremap lh <esc>
 nnoremap <silent> <leader>sv :w!<cr> :source %<cr>
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>es :sp $MYVIMRC<cr>
@@ -11,21 +10,12 @@ runtime ftplugin/man.vim
 
 " {{{ 背景主题设置
 
-    if &term == "xterm-256color"
-        colorscheme solarized
-        set background=light
-    elseif &term == "xterm-new"
-        colorscheme solarized
-        set background=dark
-    else 
-        colorscheme solarized
-        set background=dark
-    endif
-
-    if exists('$TMUX')
-        set term=screen-256color
+    if exists('$TMUX') 
         colorscheme molokai
         set background=light
+    else
+        colorscheme solarized
+        set background=dark
     endif
 
 " }}}
@@ -33,7 +23,7 @@ runtime ftplugin/man.vim
 " 编译
 
 
-" 展开当前目录
+" 在命令模式中展开当前目录
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 
 " 使能够在缓存文件之间跳

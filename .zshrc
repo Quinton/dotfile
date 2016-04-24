@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-if [ "$TERM" = "xterm-256color" ]; then
+if [ "$TERM" = "xterm-256color" ] || [ -n "$TMUX" ]; then
     ZSH_THEME="pygmalion"
 else
     ZSH_THEME="agnoster"
@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH=$PATH:~/Downloads
+export PATH="/usr/local/sbin:~/Downloads:$PATH"
 alias tmux='tmux -2'
 alias cls='clear'
 alias ll='ls -l'
@@ -107,5 +107,4 @@ alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 
-# [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh

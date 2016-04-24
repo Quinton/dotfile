@@ -4,7 +4,7 @@ filetype off
 " Vundle plugin setup
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'Vundlevim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " General enhancements
 " git插件
@@ -121,19 +121,23 @@ Plugin 'nelstrom/vim-qargs'
     " }}}
 
     " 文件搜索等等{{{
-    Plugin 'kien/ctrlp.vim'
-        let g:ctrlp_map = '<c-\>'
-        " let g:ctrlp_cmd = 'CtrlP'
-        let g:ctrlp_working_path_mode = 'ra'
-        set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-        " 文件过滤
-        let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '\v\.(out|exe|so|dll)$',
-            \ 'link': 'some_bad_symbolic_links',
-            \ }
+        Plugin 'Shougo/unite.vim'
+    " }}}
 
-    "}}}
+    " " 文件搜索等等{{{
+    " Plugin 'kien/ctrlp.vim'
+    "     let g:ctrlp_map = '<c-\>'
+    "     " let g:ctrlp_cmd = 'CtrlP'
+    "     let g:ctrlp_working_path_mode = 'ra'
+    "     set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+    "     " 文件过滤
+    "     let g:ctrlp_custom_ignore = {
+    "         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    "         \ 'file': '\v\.(out|exe|so|dll)$',
+    "         \ 'link': 'some_bad_symbolic_links',
+    "         \ }
+
+    " " }}}
 
     " 内容搜索 {{{
         Plugin 'rking/ag.vim'
@@ -273,6 +277,8 @@ Plugin 'nelstrom/vim-qargs'
         let g:SuperTabDefaultCompletionType    = '<C-n>'
         " 不显示load python 提示
         let g:ycm_confirm_extra_conf=0
+        let g:ycm_error_symbol   = '✗'
+        let g:ycm_warning_symbol = '⚠'
     " }}}
 
     " snippets{{{
@@ -284,13 +290,6 @@ Plugin 'nelstrom/vim-qargs'
             let g:UltiSnipsListSnippets        = '<C-Tab>'
             let g:UltiSnipsJumpForwardTrigger  = "<Tab>"
             let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
-    " }}}
-
-    " syntastic{{{
-        " 语法分析
-        Plugin 'scrooloose/syntastic'
-            let g:syntastic_error_symbol   = '✗'
-            let g:syntastic_warning_symbol = '⚠'
     " }}}
 
     " {{{cpp STL语法支持
