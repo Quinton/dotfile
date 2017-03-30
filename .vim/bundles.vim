@@ -7,8 +7,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " General enhancements
+
+" Plugin 'lilydjwg/fcitx.vim'
+
 " git插件
 Plugin 'tpope/vim-fugitive'
+
 " 括号配对
 " Plugin 'Raimondi/delimitMate'
 
@@ -32,14 +36,28 @@ Plugin 'tpope/vim-abolish'
 
 " 快速移动
 Plugin 'Lokaltog/vim-easymotion'
+
 " 为下面动作做基础
 Plugin 'kana/vim-textobj-user'
+
 " 全局动作 ae, ie
 Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-lastpat'
 
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'nelstrom/vim-qargs'
+
+" swift {{{ 
+"
+    " swift的扩展文件 {{{
+        Plugin 'cfdrake/ultisnips-swift'
+    " }}}
+
+    " swift的语法、高亮、智能等等 {{{
+        Plugin 'toyamarinyon/vim-swift'
+    " }}}
+
+" }}}
 
     " emmet高速别写网页类代码 {{{
         Plugin 'mattn/emmet-vim'
@@ -57,9 +75,9 @@ Plugin 'nelstrom/vim-qargs'
             \}
     " }}}
 
-" XCode插件{{{ 
-    Plugin 'XVimProject/XVim'
-" }}}
+" " XCode插件{{{ 
+"     Plugin 'XVimProject/XVim'
+" " }}}
 
 " markdown插件{{{
 
@@ -280,6 +298,38 @@ Plugin 'nelstrom/vim-qargs'
         let g:ycm_error_symbol   = '✗'
         let g:ycm_warning_symbol = '⚠'
     " }}}
+
+    " " syntastic{{{
+    "     Plugin 'scrooloose/syntastic'
+    "     let g:syntastic_cpp_compiler = 'clang++'
+    "     let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
+    "     let g:syntastic_error_symbol='>>'
+    "     let g:syntastic_warning_symbol='>'
+    "     let g:syntastic_check_on_open=1
+    "     let g:syntastic_check_on_wq=0
+    "     let g:syntastic_enable_highlighting=1
+    "     let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
+    "     let g:syntastic_javascript_checkers = ['jsl', 'jshint']
+    "     let g:syntastic_html_checkers=['tidy', 'jshint']
+    "     " 修改高亮的背景色, 适应主题
+    "     highlight SyntasticErrorSign guifg=white guibg=black
+
+    "     " to see error location list
+    "     let g:syntastic_always_populate_loc_list = 0
+    "     let g:syntastic_auto_loc_list = 0
+    "     let g:syntastic_loc_list_height = 5
+    "     function! ToggleErrors()
+    "         let old_last_winnr = winnr('$')
+    "         lclose
+    "         if old_last_winnr == winnr('$')
+    "             " Nothing was closed, open syntastic error location panel
+    "             Errors
+    "         endif
+    "     endfunction
+    "     nnoremap <Leader>s :call ToggleErrors()<cr>
+    "     " nnoremap <Leader>sn :lnext<cr>
+    "     " nnoremap <Leader>sp :lprevious<cr>
+    " " }}}
 
     " snippets{{{
         Plugin 'SirVer/ultisnips'

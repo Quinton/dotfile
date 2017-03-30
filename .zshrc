@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="/usr/local/sbin:~/Downloads:$PATH"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:~/Downloads"
 alias tmux='tmux -2'
 alias cls='clear'
 alias ll='ls -l'

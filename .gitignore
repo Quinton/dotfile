@@ -40,3 +40,6 @@ syntax
 
 # the bundle of vim
 bundle
+
+# the not need of dir
+plugin
