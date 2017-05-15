@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# 安装brew软件
+# 安装HomeBrew软件
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # 检测程序是否正常权限是否足够
 brew doctor
 
-# 安装gui安装软件
+# 安装gui软件
 brew install brew-cask
 
 # 安装所需软件

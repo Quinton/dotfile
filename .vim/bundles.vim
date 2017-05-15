@@ -18,16 +18,20 @@ Plugin 'tpope/vim-fugitive'
 
 " vim-scripts  repos
 
+Plugin 'tpope/vim-repeat'
+
 " 注释
 Plugin 'tpope/vim-commentary'
-" 遍历列表 [b,[q,[a,[l,[t
+
+" 遍历列表 [b 缓存,[q quickfix,[a args,[l location,[t tags
 Plugin 'tpope/vim-unimpaired'
+
 " 添加／删除／改变成对符号
 Plugin 'tpope/vim-surround' " ds,ys,cs
 
-Plugin 'tpope/vim-repeat'
 " 智能替换
 Plugin 'tpope/vim-abolish'
+
 
 " Plugin 'tpope/vim-bundler'
 " rails工程文件查找文件
@@ -48,7 +52,7 @@ Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'nelstrom/vim-qargs'
 
 " swift {{{ 
-"
+
     " swift的扩展文件 {{{
         Plugin 'cfdrake/ultisnips-swift'
     " }}}
@@ -74,10 +78,6 @@ Plugin 'nelstrom/vim-qargs'
             \ },
             \}
     " }}}
-
-" " XCode插件{{{ 
-"     Plugin 'XVimProject/XVim'
-" " }}}
 
 " markdown插件{{{
 
@@ -117,14 +117,14 @@ Plugin 'nelstrom/vim-qargs'
 
 " Powerline{{{
     Plugin 'lokaltog/vim-powerline'
-    " set guifont=PowerlineSymbols\ for\ Powerline
-    set t_Co=256
-    set encoding=utf-8
-    " let g:Powerline_theme = 'solarized16'
-    let g:Powerline_colorscheme = 'solarized256'
-    let g:Powerline_symbols = 'unicode'
-    let g:Powerline_stl_path_style = 'full'
-    " set fillchars+=stl:\ ,stlnc:\
+        " set guifont=PowerlineSymbols\ for\ Powerline
+        set t_Co=256
+        set encoding=utf-8
+        " let g:Powerline_theme = 'solarized16'
+        let g:Powerline_colorscheme = 'solarized256'
+        let g:Powerline_symbols = 'unicode'
+        let g:Powerline_stl_path_style = 'full'
+        " set fillchars+=stl:\ ,stlnc:\
 " }}}
 
 " }}}
@@ -142,7 +142,7 @@ Plugin 'nelstrom/vim-qargs'
         Plugin 'Shougo/unite.vim'
     " }}}
 
-    " " 文件搜索等等{{{
+    " " 文件搜索等{{{
     " Plugin 'kien/ctrlp.vim'
     "     let g:ctrlp_map = '<c-\>'
     "     " let g:ctrlp_cmd = 'CtrlP'
@@ -195,15 +195,6 @@ Plugin 'nelstrom/vim-qargs'
             \ }
     " }}}
 
-    " " minibufexpl{{{
-    "     Plugin 'fholgado/minibufexpl.vim'
-    "     " minibufexpl插件的一般设置
-    "     let g:miniBufExplMapWindowNavVim = 1
-    "     let g:miniBufExplMapWindowNavArrows = 1
-    "     let g:miniBufExplMapCTabSwitchBufs = 0
-    "     let g:miniBufExplModSelTarget = 1 
-    " " }}}
-    
     " tagbar{{{
         Plugin 'majutsushi/tagbar'
         " 设置 tagbar 子窗口的位置出现在主编辑区的右边 
@@ -248,25 +239,34 @@ Plugin 'nelstrom/vim-qargs'
         \ }
     " }}}
 
-    " nerdtree目录树{{{
-        Plugin 'scrooloose/nerdtree'
-        " 设置显示／隐藏标签列表 
-        nnoremap <F8> :NERDTreeToggle<cr> :TagbarToggle<CR> 
-        let g:NERDTreeDirArrows = 1
-        let g:NERDTree_title="[NERDTree]"  
-        function!  NERDTree_Start()  
-            exec 'NERDTree'  
-        endfunction  
-        function! NERDTree_IsValid()  
-            return 1  
-        endfunction  
-        " autocmd vimenter * NERDTree
-        " 当没有文件输入是打开目录树
-        " autocmd StdinReadPre * let s:std_in=1
-        " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-        " 当只有目录树时退出vim
-        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-    " }}}
+    " " minibufexpl{{{
+    "     Plugin 'fholgado/minibufexpl.vim'
+    "     " minibufexpl插件的一般设置
+    "     let g:miniBufExplMapWindowNavVim = 1
+    "     let g:miniBufExplMapWindowNavArrows = 1
+    "     let g:miniBufExplMapCTabSwitchBufs = 0
+    "     let g:miniBufExplModSelTarget = 1 
+    " " }}}
+    
+    " " nerdtree目录树{{{
+    "     Plugin 'scrooloose/nerdtree'
+    "     " 设置显示／隐藏标签列表 
+    "     nnoremap <F8> :NERDTreeToggle<cr> :TagbarToggle<CR> 
+    "     let g:NERDTreeDirArrows = 1
+    "     let g:NERDTree_title="[NERDTree]"  
+    "     function!  NERDTree_Start()  
+    "         exec 'NERDTree'  
+    "     endfunction  
+    "     function! NERDTree_IsValid()  
+    "         return 1  
+    "     endfunction  
+    "     " autocmd vimenter * NERDTree
+    "     " 当没有文件输入是打开目录树
+    "     " autocmd StdinReadPre * let s:std_in=1
+    "     " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    "     " 当只有目录树时退出vim
+    "     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+    " " }}}
 
     " " winmanager窗口管理{{{
     "     Plugin 'winmanager'
@@ -288,8 +288,11 @@ Plugin 'nelstrom/vim-qargs'
         " 只能是 #include 或已打开的文件
         " nnoremap <leader>f : YcmCompleter GoToDefinition<cr>
         " nnoremap <leader>l : YcmCompleter GoToDeclaration<cr>
-        nnoremap <leader>j : YcmCompleter GoToDefinitionElseDeclaration<cr>
-        nmap     <F4>       : YcmDiags<cr>
+        nnoremap <leader>j  :YcmCompleter GoToDefinitionElseDeclaration<cr>
+        nmap     <Leader>o :YcmDiags<cr>
+        " nnoremap <Leader>ac :lclose<cr>
+        " nnoremap ]l :lnext<cr>
+        " nnoremap [l :lprevious<cr>
         let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
         let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
         let g:SuperTabDefaultCompletionType    = '<C-n>'
@@ -327,8 +330,6 @@ Plugin 'nelstrom/vim-qargs'
     "         endif
     "     endfunction
     "     nnoremap <Leader>s :call ToggleErrors()<cr>
-    "     " nnoremap <Leader>sn :lnext<cr>
-    "     " nnoremap <Leader>sp :lprevious<cr>
     " " }}}
 
     " snippets{{{
