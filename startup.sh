@@ -15,16 +15,25 @@ brew install tmux # vim autojump cmake git reattach-to-user-namespace xz  node m
 # 安装oh-my-zsh插件
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
-# the link of tmux
+
+# the link of dotfile configuration file
+
+# 终端窗口复用器配置文件
 ln -s ~/dotfile/.tmux/.tmux.conf ~/.tmux.conf
+# 终端窗口复用器的效果文件
 ln -s ~/dotfile/.tmux/.tmux.conf.local ~/.tmux.conf.local
 
-# the link of vim
+# vim编辑器配置文件
 ln -s ~/dotfile/.vimrc ~/.vimrc
+# vim插件目录
 ln -s ~/dotfile/.vim ~/.vim
 
-# the link of .zhsrc
+# zsh的配置文件
 ln -s ~/dotfile/.zshrc ~/.zshrc
+
+# eslint（关于javascript）配置文件
+ln -s ~/dotfile/.eslintrc.js ~/.tmux.conf
+
 
 # 安装vim管理软件
 if [[ ! -e ~/dotfile/.vim/bundle ]]; then

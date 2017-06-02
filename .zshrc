@@ -88,6 +88,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:~/Downloads"
+alias eslint='eslint_d'
 alias tmux='tmux -2'
 alias cls='clear'
 alias ll='ls -l'

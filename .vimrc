@@ -38,6 +38,22 @@ runtime ftplugin/man.vim
 
 " }}}
 
+" {{{ cscope 配置程序目录及生成数据库文件
+	if has("cscope")
+		set csprg=/usr/local/bin/cscope
+		set csto=0
+		set cst
+		set nocsverb
+        " 添加数据库文件到当前文件目录
+		if filereadable("cscope.out")
+		    cs add cscope.out
+        " 否则通过环境变量添加数据库点
+		elseif $CSCOPE_DB != ""
+		    cs add $CSCOPE_DB
+		endif
+		set csverb
+	endif
+" }}}
 
 " 在命令模式中用%%展开当前目录
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
@@ -82,6 +98,8 @@ augroup filetype_vim
     autocmd filetype vim setlocal foldmethod=marker
 augroup END
 
+" for test
+set foldmethod=marker
 " tabstop
 set tabstop=4
 set shiftwidth=4
