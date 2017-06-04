@@ -35,24 +35,24 @@
 
 ## Xcode
 
-从 App store 或苹果开发者网站安装 [Xcode](https://developer.apple.com/xcode/) 。
+从 `App store` 或苹果开发者网站安装 [Xcode](https://developer.apple.com/xcode/) 。
 
-紧接着，安装 Xcode command line tools，运行：
+紧接着，安装` Xcode command line tools`，运行：
 
     `xcode-select --install`
     
-运行命令后，按照指引，你将完成 Xcode command line tools 安装。
+运行命令后，按照指引，你将完成 `Xcode command line tools` 安装。
 
 `译注`:
 
-如果你不是一名 iOS 或 OS X 开发者，可以跳过安装 XCode 的过程，直接安装 Xcode command line tools 。安装完成后，你将可以直接在 terminal 中使用主要的命令，比如：make, GCC, clang, perl, svn, git, size, strip, strings, libtool, cpp等等。
+如果你不是一名 `iOS` 或 `OS X` 开发者，可以跳过安装 `XCode` 的过程，直接安装 `Xcode command line tools` 。安装完成后，你将可以直接在 `terminal` 中使用主要的命令，比如：`make`, `GCC`, `clang`, `perl`, `svn`, `git`, `size`, `strip`, `strings`, `libtool`, `cpp`等等。
 
-如果你想了解 Xcode command line tools 包含多少可用的命令，可以到 /Library/Developer/CommandLineTools/ 查看。
+如果你想了解 `Xcode command line tools` 包含多少可用的命令，可以到 `/Library/Developer/CommandLineTools/` 查看。
 
 
 ## Homebrew
 
-包管理工具可以让你安装和更新程序变得更方便，目前在 OS X 系统中最受欢迎的包管理工具是 [Homebrew](https://brew.sh).
+包管理工具可以让你安装和更新程序变得更方便，目前在 `OS X` 系统中最受欢迎的包管理工具是 [Homebrew](https://brew.sh).
 
 ### 安装
 
@@ -60,18 +60,21 @@
 
 在 `terminal` 中复制以下命令（不包括 $），跟随指引，将完成 Hombrew 安装。
 
-``$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-``
+```bash
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
 紧接着，我们需要做一件事让通过 Homebrew 安装的程序的启动链接 (在 /usr/local/bin中）可以直接运行，无需将完整路径写出。通过以下命令将 /usr/local/bin 添加至 `$PATH` 环境变量中:
 
-``
+```bash
 $ echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
-``
+```
 
 `Cmd+T` 打开一个新的 `terminal` 标签页，运行以下命令，确保 `brew` 运行正常。
 
-``$ brew doctor``
+```
+$ brew doctor
+```
 
 -
 `译注`：
@@ -135,14 +138,25 @@ $ brew cask install totalfinder
 
 在 `Finder` 中，将 iTerm 拖拽进入 Application 文件夹中。然后，你可以在 `Launchpad` 中启动 `iTerm2`。
 
-### 颜色和字体设置
+### 颜色和字体设置及安装配置
 
-- 在 `Keys` -> `Hotkey` 中设置 `command` + `option` + `i` 快速显示和隐藏 `iTerm2`
+- 在 `Keys` -> `Hotkey` 中设置 `command` + `option` + `i` 快速显示和隐藏 `iTerm2` 。
 - 在 `Profiles` -> `Default` -> `Check silence bell`
-- 下载 `Solarized dark iterm colors`，在 `Profiles` -> `Default` -> `Colors` -> `Load Presets` 将其导入，作为默认颜色。
-- 在 `Profiles` -> `Text` 改变游标（cursor）文字（consolas微软下）和颜色，随个人喜好。
+- 下载 [Solarized dark iterm colors](https://github.com/altercation/solarized)，在 `Profiles` -> `Default` -> `Colors` -> `Load Presets` 将其导入，作为默认颜色。
+- 在 `Profiles` -> `Text` 改变游标（`cursor`）、文字和颜色，随个人喜好。
 
-`consolas` 下载及安装
+
+[Solarized dark iterm colors](https://github.com/altercation/solarized) 终端主题颜色及 [Source Code Pro字体](https://github.com/adobe-fonts/source-code-pro)的下载安装配置
+
+```bash
+$ cd
+$ mkdir iTerm2Conf
+$ cd iTerm2Conf
+$ git clone https://github.com/altercation/solarized
+$ git clone https://github.com/adobe-fonts/source-code-pro
+```
+
+`Mac OS X` 安装 `Consolas` 字体
 
 ```bash
 $ brew install cabextract
@@ -153,6 +167,70 @@ $ curl -O http://download.microsoft.com/download/f/5/a/f5a3df76-d856-4a61-a6bd-7
 $ cabextract PowerPointViewer.exe
 $ cabextract ppviewer.cab
 $ open CONSOLA*.TTF
+```
+
+### ZSH
+
+切换 `zsh` 作为第一 `shell`。
+
+```bash
+$ sudo chsh /bin/zsh 
+# 查看系统中的 shells
+$ cat /etc/shells
+```
+
+我们将安装 `zsh` ，其拓展功能和主题将由 `oh-my-zsh` 提供。其中`Env.sh` 文件用于维护别名（`aliases`），输出（`exports`）和路径改变（`path changes`）等等，以免影响 `~/.zshrc`。
+
+
+使用 `Homebrew` 完成 `zsh` 和 `zsh completions` （自动补全）的安装
+
+```bash
+$   brew install zsh zsh-completions
+```
+安装 `oh-my-zsh` 让 `zsh` 获得拓展功能和主题+
+
+```bash
+$ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+```
+    
+用文本编辑器或 `vim` 打开 `.zshrc` 进行以下编辑:
+
+```bash
+ZSH_THEME=pygmalion
+alias zshconfig="vi ~/.zshrc"
+alias envconfig="vi ~/Projects/config/env.sh"
+plugins=(git colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
+```   
+    
+用文本编辑器或 vi 打开 ~/Projects/config/env.sh 进行以下编辑:
+    
+```bash
+#!/bin/zsh
+
+# PATH
+export PATH="/usr/local/share/python:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export EDITOR='vi -w'
+# export PYTHONPATH=$PYTHONPATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# Virtual Environment
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Projects
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Owner
+export USER_NAME="YOUR NAME"
+eval "$(rbenv init -)"
+
+# FileSearch
+function f() { find . -iname "*$1*" ${@:2} }
+function r() { grep "$1" ${@:2} -R . }
+
+#mkdir and cd
+function mkcd() { mkdir -p "$@" && cd "$_"; }
+
+# Aliases
+alias cppcompile='c++ -std=c++11 -stdlib=libc++'
 ```
 
 

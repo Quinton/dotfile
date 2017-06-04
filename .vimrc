@@ -107,6 +107,8 @@ set softtabstop=4
 
 " tab转化空格展开
 set expandtab
+
+" 文件只能用tab键时不转化为空格
 set smarttab
 
 " backspace
