@@ -88,7 +88,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:~/Downloads"
-alias eslint='eslint_d'
+# alias eslint='eslint_d'
+alias bash='/usr/local/bin/bash'
 alias tmux='tmux -2'
 alias cls='clear'
 alias ll='ls -l'
@@ -99,7 +100,7 @@ alias grep="grep --color=auto"
 alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
 alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开
 alias -s py=vi       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
-alias -s js=vi
+# alias -s js=vi
 alias -s c=vi
 alias -s java=vi
 alias -s txt=vi

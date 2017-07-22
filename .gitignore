@@ -41,5 +41,11 @@ syntax
 # the bundle of vim
 bundle
 
+# generate file
+.vim/.netrwhist
+
 # the not need of dir
 plugin
+
+# tags file
+tags
