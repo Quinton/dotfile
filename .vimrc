@@ -5,13 +5,15 @@ let mapleader="\<Space>"
 nnoremap <silent> <leader>sv :w!<cr> :source %<cr>
 
 " 插件的配置文件，把基本配置和插件配置分开
-" 跳转到该文件，通过游标在bundles.vim位置上按gf按键跳转，再通过C-O回跳
+" 跳转到该文件，通过游标聚焦在bundles.vim位置上按gf按键跳转，再通过C-O回跳
 source ~/.vim/bundles.vim
+source ~/.vim/config.vim
 
 " 设置快捷键
 
 " nnoremap cog :silent! let g:ale_set_loclist = 1<cr>
-nnoremap coz :!ctags -R<cr>
+nnoremap =oz :!ctags -R<cr>
+nnoremap =ot :IndentLinesToggle<cr>
 
 " autocmd BufWritePost * call system("ctags -R")
 set visualbell
@@ -41,30 +43,20 @@ endif
 " 在命令模式中用%%展开当前目录
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 
-" 使能够在缓存文件之间跳
+" 使文件在修改后（不保存），能够在缓存文件之间跳转
 set hidden
 
-" 字体编码
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-
-" 滚动条 对MacVim起作用
-set guioptions=
+" 字体编码优先顺序
+set fileencodings=utf-8,ucs-bom,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 " 显示数字
-set number
+" set number
 
-" 显示行列
-" set cursorcolumn, cursorline
-
-" 开启语法高亮
-syntax enable
-syntax on
+" 开启语法高亮 文件类型侦测
+syntax enable on
 
 " 智能缩进
 set autoindent
-
-" C缩进风格
-set cindent
 
 " 底层状态栏
 set laststatus=2
@@ -75,29 +67,36 @@ set showcmd
 " 显示模式
 set showmode
 
-" 使用标签来折叠
+" 使用标签来折叠vim配置文件
 augroup filetype_vim
     autocmd!
     autocmd filetype vim setlocal foldmethod=marker
 augroup END
 
-" for test
-set foldmethod=marker
-" tabstop
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+" 缩进控制 ts{tabstop} sw{shiftwidth} sts{softtabstop}
+augroup filetype_indent
+    autocmd!
+    autocmd filetype css         setlocal ts=2 sw=2 sts=2
+    autocmd filetype sql         setlocal ts=4 sw=4 sts=4
+    autocmd filetype html        setlocal ts=2 sw=2 sts=2
+    autocmd filetype javascript  setlocal ts=2 sw=2 sts=2
+    autocmd filetype vim         setlocal ts=4 sw=4 sts=4
+    autocmd filetype c           setlocal ts=4 sw=4 sts=4
+    autocmd filetype cpp         setlocal ts=4 sw=4 sts=4
+augroup END
 
-" tab转化空格展开
+" tab 转化空格展开
 set expandtab
 
-" 文件只能用tab键时不转化为空格
+" 指定文件只能用tab键时不转化为空格，例如makefile
 set smarttab
 
+set nowrap
 " backspace
 set backspace=indent,eol,start
+
 " set hlsearch
-set incsearch
+" set incsearch
 set wildmode=full
 
 " 无需缓存文件
@@ -105,6 +104,3 @@ set noswapfile
 
 " 无需备份
 set nobackup
-
-" 超过屏幕长度自动转行，不折叠
-set wrap

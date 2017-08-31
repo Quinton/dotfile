@@ -6,11 +6,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
+" vim中文说明文档 ./vimcdoc.sh -i安装
+Plugin 'yianwillis/vimcdoc'
+
 "  基本文本操作功能的增强{{{
 Plugin 'skywind3000/asyncrun.vim'
-
-" vim 的git版本控制
-Plugin 'tpope/vim-fugitive'
 
 " 为其他插件提供重复操作功能
 Plugin 'tpope/vim-repeat'
@@ -28,9 +28,6 @@ Plugin 'tpope/vim-surround' " ds,ys,cs,visual mode S
 
 " 智能替换
 Plugin 'tpope/vim-abolish'
-
-" 提供寄存器的几种方法
-" Plugin 'svermeulen/vim-easyclip'
 
 " 通过gf浏览目录中不带后缀的文件
 Plugin 'tpope/vim-bundler'
@@ -88,13 +85,13 @@ Plugin 'godlygeek/tabular'
 let g:taabular_loaded = 1
 
 " 文本排版
-Plugin 'hotoo/pangu.vim'    
+" Plugin 'hotoo/pangu.vim'    
 
 " }}}
 
-" 语法高亮检测自动补全及扩展{{{
+" 语法高亮检测自动补全及扩展显示{{{
 
-" YouCompleteme{{{
+" YouCompleteme智能补全{{{
 Plugin 'Valloric/YouCompleteMe'
 " 只能是 #include 或已打开的文件
 " nnoremap <leader>f : YcmCompleter GoToDefinition<cr>
@@ -120,17 +117,26 @@ let g:ycm_warning_symbol = '⚠'
 " let g:ycm_enable_diagnostic_highlighting = 0
 " }}}
 
-" ale 语法检测{{{
+" 绝大多数语言语法高亮支持{{{
+Plugin 'sheerun/vim-polyglot'
+" let  g:polyglot_disabled  = [ ' css ' ]
+" }}}
+
+" 语法检测{{{
+
+Plugin 'htacg/tidy-html5'
+
 Plugin 'w0rp/ale'
-" let g:ale_linters = {
-"             \   'javascript': ['eslint_d'],
-"             \   'c': [''],
-"             \}
+let g:ale_linters = {
+            \   'javascript': ['eslint'],
+            \   'html': ['tidy']
+            \}
 let g:ale_sign_error='✗'
 let g:ale_sign_warning='⚠'                   
 " 将错误和警告信息填入quickfix中
 " let g:ale_set_loclist = 0
 " let g:ale_set_quickfix = 1
+
 " }}}
 
 " snippets片段扩展{{{
@@ -146,10 +152,11 @@ let g:UltiSnipsJumpForwardTrigger  = "<Tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 " }}}
 
-" 语言语法(syntax)高亮支持，补全{{{
-
-" cpp STL语法支持{{{
-Plugin 'Mizuchi/STL-Syntax'
+" 显示quickfix列表和location列表{{{
+Plugin 'Valloric/ListToggle'
+let g:lt_location_list_toggle_map = '<leader>l'
+let g:lt_quickfix_list_toggle_map = '<leader>q'
+let g:lt_height = 10        
 " }}}
 
 " " swift {{{ 
@@ -164,39 +171,9 @@ Plugin 'Mizuchi/STL-Syntax'
 
 " " }}}
 
-" Typescript 语法支持{{{
-" Plugin 'Quramy/tsuquyomi'
-" Plugin 'leafgarland/typescript-vim'
-Plugin 'HerringtonDarkholme/yats.vim'
-if !exists("g:ycm_semantic_triggers")
-    let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers['typescript'] = ['.']
-" }}}
-
-"  javascript{{{
-" 语法高亮
-Plugin 'pangloss/vim-javascript'
-let g:javascript_plugin_jsdoc = 1
-
-" javascript补全支持 需要配置.tern-project文件
-" 
-Plugin 'ternjs/tern_for_vim'
-
-" }}}
-
-"}}}
-
 " }}}
 
 " 文件搜索，匹配，定位，版本控制{{{
-
-" 显示quickfix列表和location列表{{{
-Plugin 'Valloric/ListToggle'
-let g:lt_location_list_toggle_map = '<leader>l'
-let g:lt_quickfix_list_toggle_map = '<leader>q'
-let g:lt_height = 10        
-" }}}
 
 " 文件搜索等等{{{
 Plugin 'Shougo/unite.vim'
@@ -230,6 +207,12 @@ let g:ag_highlight=1
 let g:ag_format="%f:%l:%m"
 " }}}
 
+" vim 的git版本控制{{{
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'gregsexton/gitv'
+" }}}
+
 " 历史回溯 {{{
 Plugin 'sjl/gundo.vim'
 " }}}
@@ -246,7 +229,6 @@ Plugin 'sjl/gundo.vim'
 "         \ 'file': '\v\.(out|exe|so|dll)$',
 "         \ 'link': 'some_bad_symbolic_links',
 "         \ }
-
 " " }}}
 
 " }}}
@@ -305,11 +287,6 @@ let g:solarized_visibility = "normal"
 Plugin 'tomasr/molokai'
 let g:molokai_original = 1
 let g:rehash256 = 1
-" }}}
-
-" base-16{{{
-Plugin 'chriskempson/base16-vim'
-let base16colorspace=256  " Access colors present in 256 colorspace
 " }}}
 
 " }}}
@@ -393,44 +370,29 @@ let g:SignatureMap = {
             \ }
 " }}}
 
-" " minibufexpl{{{
-"     Plugin 'fholgado/minibufexpl.vim'
-"     " minibufexpl插件的一般设置
-"     let g:miniBufExplMapWindowNavVim = 1
-"     let g:miniBufExplMapWindowNavArrows = 1
-"     let g:miniBufExplMapCTabSwitchBufs = 0
-"     let g:miniBufExplModSelTarget = 1 
-" " }}}
-
-" " winmanager窗口管理{{{
-"     Plugin 'winmanager'
-"     " 打开vim时自动打开winmanager  
-"     let g:AutoOpenWinManager = 1  
-"     " 在vim左侧显示窗口Taglist和文件列表窗口  
-"     " let g:winManagerWindowLayout='FileExplorer,BufExplorer|TagList'  
-"     let g:winManagerWindowLayout='NERDTree, MiniBufExplorer|Tagbar'  
-"     " 定义打开关闭winmanager的快捷键为 wt组合键命令  
-"     nmap wt :WMToggle<cr>  
-" " }}}
-
 " }}}
 
 " 工具拓展{{{
 
 " emmet高速编写网页类代码 {{{
 Plugin 'mattn/emmet-vim'
-let g:user_emmet_settings = {
-            \ 'php' : {
-            \ 'extends' : 'html',
-            \ 'filters' : 'c',
-            \ },
-            \ 'xml' : {
-            \ 'extends' : 'html',
-            \ },
-            \ 'haml' : {
-            \ 'extends' : 'html',
-            \ },
-            \}
+let g:emmet_html5 = 1
+" let g:user_emmet_settings = {
+"             \ 'html': {
+"             \ 'empty_element_suffix':'/>',
+"             \ },
+"             \ 'php' : {
+"             \ 'extends' : 'html',
+"             \ 'filters' : 'c',
+"             \ },
+"             \ 'xml' : {
+"             \ 'extends' : 'html',
+"             \ },
+"             \ 'haml' : {
+"             \ 'extends' : 'html',
+"             \ },
+"             \}
+
 " 帮助emmet显示snippets提示
 Plugin 'jceb/emmet.snippets'
 " }}}
