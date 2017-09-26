@@ -50,7 +50,8 @@ set hidden
 set fileencodings=utf-8,ucs-bom,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 " 显示数字
-" set number
+set number
+" set relativenumber
 
 " 开启语法高亮 文件类型侦测
 syntax enable on
@@ -104,3 +105,6 @@ set noswapfile
 
 " 无需备份
 set nobackup
+
+" 设置鼠标功能
+set mouse=a

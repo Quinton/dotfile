@@ -6,6 +6,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
+" 以下插件文件夹一律都在~/.vim/bundle/ 下
+
 " vim中文说明文档 ./vimcdoc.sh -i安装
 Plugin 'yianwillis/vimcdoc'
 
@@ -44,8 +46,8 @@ map <leader> <plug>(easymotion-prefix)
 " 模式显示所有匹配项
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/incsearch-easymotion.vim'
-map /  <Plug>(incsearch-forward)
-map g/ <Plug>(incsearch-stay)
+map /  <plug>(incsearch-forward)
+map g/ <plug>(incsearch-stay)
 
 Plugin 'haya14busa/incsearch-fuzzy.vim'
 function! s:config_easyfuzzymotion(...) abort
@@ -96,8 +98,9 @@ Plugin 'Valloric/YouCompleteMe'
 " 只能是 #include 或已打开的文件
 " nnoremap <leader>f : YcmCompleter GoToDefinition<cr>
 " nnoremap <leader>l : YcmCompleter GoToDeclaration<cr>
-nnoremap <leader>j  :YcmCompleter GoToDefinitionElseDeclaration<cr>
+" nnoremap <leader>j  :YcmCompleter GoToDefinitionElseDeclaration<cr>
 nnoremap <Leader>o :YcmDiags<cr>
+let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_open_loclist_on_ycm_diags = 0
 let g:ycm_key_list_select_completion   = ['<C-n>'] ", '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>'] ", '<Up>']
@@ -254,7 +257,8 @@ Plugin 'Yggdroot/indentLine'
 " 目录管理nerdtree{{{
 Plugin 'scrooloose/nerdtree'
 " 设置显示／隐藏标签列表 
-nnoremap <F8> :NERDTreeToggle<cr> :TagbarToggle<CR> 
+nnoremap <F8> :NERDTreeToggle<cr> 
+":TagbarToggle<CR> 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrows = 1
 let g:NERDTree_title="[NERDTree]"  
@@ -342,6 +346,9 @@ let g:tagbar_type_cpp = {
             \ }
 " }}}
 
+" 进入该项目文件并通过 npm install 安装
+Plugin 'ternjs/tern_for_vim'
+
 " visual mark可视标签{{{
 " 标签显示
 Plugin 'kshenoy/vim-signature'
@@ -396,6 +403,16 @@ let g:emmet_html5 = 1
 " 帮助emmet显示snippets提示
 Plugin 'jceb/emmet.snippets'
 " }}}
+
+" makrdown{{{
+Plugin 'iamcco/mathjax-support-for-mkdp'
+Plugin 'iamcco/markdown-preview.vim'
+let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
+" or
+let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+" }}}
+
+Plugin 'eshion/vim-sync'
 
 " }}}
 
