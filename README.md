@@ -19,9 +19,11 @@
 
 - 置于屏幕上的位置：左边
 - 设置 Dock 图标更小（大小随个人喜好）
-- [x] 自动显示和隐藏 Dock        
+- [x] 自动显示和隐藏 Dock
 
 ### Finder
+
+- 设置经常使用的文件夹，比如下载文件夹。右键选择排列方式为种类。设置在左上方的显示选项。
 
 ### 菜单栏
 
@@ -39,8 +41,8 @@
 
 紧接着，安装` Xcode command line tools`，运行：
 
-    `xcode-select --install`
-    
+`xcode-select --install`
+
 运行命令后，按照指引，你将完成 `Xcode command line tools` 安装。
 
 `译注`:
@@ -73,7 +75,7 @@ $ echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
 `Cmd+T` 打开一个新的 `terminal` 标签页，运行以下命令，确保 `brew` 运行正常。
 
 ```
-$ brew doctor
+$ brew doctor // 验证 brew 是否可用
 ```
 
 -
@@ -90,9 +92,10 @@ $ brew doctor
 安装 `Homebrew-cask` 是如此的简单直接，运行以下命令即可完成：
 
 ```bash
-$ brew install caskroom/cask/brew-cask
-$ brew cask install google-chrome // 安装 Google 浏览器
-$ brew update && brew upgrade brew-cask && brew cleanup // 更新
+$ brew cask install google-chrome //  安装 Google 浏览器
+$ brew update                     //  更新brew
+$ brew upgrade soft               //  更新软件
+$ brew cleanup                    //  清除多余的下载文件
 ```
 
 ### 搜索
@@ -141,32 +144,19 @@ $ brew cask install totalfinder
 ### 颜色和字体设置及安装配置
 
 - 在 `Keys` -> `Hotkey` 中设置 `command` + `option` + `i` 快速显示和隐藏 `iTerm2` 。
-- 在 `Profiles` -> `Default` -> `Check silence bell`
-- 下载 [Solarized dark iterm colors](https://github.com/altercation/solarized)，在 `Profiles` -> `Default` -> `Colors` -> `Load Presets` 将其导入，作为默认颜色。
+- 在 `Profiles` -> `Default` -> `Check silence bell`  使 iterm2 铃声不响
+- 在 `Profiles` -> `Default` -> `Colors` -> `Load Presets` 将其导入，作为默认颜色。
 - 在 `Profiles` -> `Text` 改变游标（`cursor`）、文字和颜色，随个人喜好。
 
 
 [Solarized dark iterm colors](https://github.com/altercation/solarized) 终端主题颜色及 [Source Code Pro字体](https://github.com/adobe-fonts/source-code-pro)的下载安装配置
 
 ```bash
-$ cd
-$ mkdir iTerm2Conf
-$ cd iTerm2Conf
+$ cd               //  回到主目录中
+$ mkdir iTerm2Conf //  创建文件夹放置文件
+$ cd iTerm2Conf    //  进入文件夹
 $ git clone https://github.com/altercation/solarized
 $ git clone https://github.com/adobe-fonts/source-code-pro
-```
-
-`Mac OS X` 安装 `Consolas` 字体
-
-```bash
-$ brew install cabextract
-$ cd ~/Downloads
-$ mkdir consolas
-$ cd consolas
-$ curl -O http://download.microsoft.com/download/f/5/a/f5a3df76-d856-4a61-a6bd-722f52a5be26/PowerPointViewer.exe
-$ cabextract PowerPointViewer.exe
-$ cabextract ppviewer.cab
-$ open CONSOLA*.TTF
 ```
 
 ### ZSH
@@ -174,9 +164,10 @@ $ open CONSOLA*.TTF
 切换 `zsh` 作为第一 `shell`。
 
 ```bash
-$ sudo chsh /bin/zsh 
 # 查看系统中的 shells
 $ cat /etc/shells
+# 切换默认 bash 到 zsh
+$ sudo chsh -s /bin/zsh 
 ```
 
 我们将安装 `zsh` ，其拓展功能和主题将由 `oh-my-zsh` 提供。其中`Env.sh` 文件用于维护别名（`aliases`），输出（`exports`）和路径改变（`path changes`）等等，以免影响 `~/.zshrc`。
@@ -187,23 +178,24 @@ $ cat /etc/shells
 ```bash
 $   brew install zsh zsh-completions
 ```
-安装 `oh-my-zsh` 让 `zsh` 获得拓展功能和主题+
+安装 `oh-my-zsh` 让 `zsh` 获得拓展功能和主题
 
 ```bash
 $ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 ```
-    
+
 用文本编辑器或 `vim` 打开 `.zshrc` 进行以下编辑:
 
 ```bash
+# iterm2 终端colors主题
 ZSH_THEME=pygmalion
 alias zshconfig="vi ~/.zshrc"
 alias envconfig="vi ~/Projects/config/env.sh"
 plugins=(git colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
 ```   
-    
+
 用文本编辑器或 vi 打开 ~/Projects/config/env.sh 进行以下编辑:
-    
+
 ```bash
 #!/bin/zsh
 
@@ -234,14 +226,26 @@ alias cppcompile='c++ -std=c++11 -stdlib=libc++'
 ```
 
 
-## Tmux
-
-## Vim
-
-## Git
-
 ## MySql
 
 ## Node.js
 
+
+## 必不可少提高效率的软件介绍
+
+### alfred
+
+### Karabiner-Elements 键位定制神器
+
+系统全局的键位定制 [地址](https://github.com/wwwjfy/Karabiner-Elements)
+
+### 播放器
+
+[iina](https://github.com/lhc70000/iina)
+
+### Tmux
+
+### Vim
+
+### Git
 

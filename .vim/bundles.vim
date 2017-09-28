@@ -1,15 +1,17 @@
 set nocompatible
 filetype off
 
-" Vundle plugin setup
+" 指定加载管理插件的文件夹地址
+" 插件的存放的根文件夹一律在~/.vim/bundle/下
 set rtp+=~/.vim/bundle/Vundle.vim
+" Vundle管理插件软件开始运行
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-" 以下插件文件夹一律都在~/.vim/bundle/ 下
-
 " vim中文说明文档 ./vimcdoc.sh -i安装
 Plugin 'yianwillis/vimcdoc'
+
+" 打开关闭折叠效果 za
 
 "  基本文本操作功能的增强{{{
 Plugin 'skywind3000/asyncrun.vim'
@@ -179,7 +181,7 @@ let g:lt_height = 10
 " 文件搜索，匹配，定位，版本控制{{{
 
 " 文件搜索等等{{{
-Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/denite.nvim'
 " }}}
 
 "  安装cscope 配置程序目录及生成数据库文件，支持 c 语言{{{
