@@ -35,16 +35,12 @@ fi
 dotfiles=(.tmux.conf .tmux.conf.local .vimrc .vim .zshrc .eslintrc.js .ycm_extra_conf.py)
 
 # 如果配置文件在安装之前存在放入备份文件夹
-for dotfile in ${dotfiles}
+for dotfile in ${dotfiles[@]}
 do
     if [[ -e ~/${dotfile} ]]; then
         mv ~/${dotfile} ~/backup
     fi
-done
-
-# 把配置文件软链接到用户主目录中
-for dotfile in ${dotfiles}
-do
+    # 把配置文件软链接到用户主目录中
     ln -s ~/dotfile/${dotfile} ~/${dotfile}
 done
 
