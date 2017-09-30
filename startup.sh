@@ -43,7 +43,7 @@ do
 done
 
 # 把配置文件软链接到用户主目录中
-for dotfile in dotfiles
+for dotfile in ${dotfiles}
 do
     ln -s ~/dotfile/${dotfile} ~/${dotfile}
 done
