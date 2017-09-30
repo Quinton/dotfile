@@ -24,7 +24,7 @@ set visualbell
 set hidden
 
 " 字体编码优先顺序
-set fileencodings=utf-8,ucs-bom,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 " 显示行数字
 set number
