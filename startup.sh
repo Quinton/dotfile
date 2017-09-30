@@ -20,19 +20,22 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 # 配置文件软链接到用户主目录当中去--------------------------------------------
 
 # 创建备份配置文件夹
-mkdir ~/backup
+if [[ ! -e ~/backup ]]; then
+    mkdir ~/backup
+fi 
 
+# .tumx.conf 终端窗口复用器配置文件
+# .tumx.conf.local 终端窗口复用器的效果文件 
+# .vimrc vim编辑器配置文件 
+# .vimr vim插件目录 
+# .zshrc zsh的配置文件 
+# .eslintrc.js eslint（关于javascript）配置文件 
+# C语言 ycm_extra_conf.py配置文件 
 # 数组保存需要链接的文件名
-dotfiles=(.tmux.conf \  # 终端窗口复用器配置文件
-    .tmux.conf.local \  # 终端窗口复用器的效果文件 
-    .vimrc \            # vim编辑器配置文件 
-    .vim \              # vim插件目录 
-    .zshrc \            # zsh的配置文件 
-    .eslintrc.js \      # eslint（关于javascript）配置文件 
-    .ycm_extra_conf.py) # C语言 ycm_extra_conf.py配置文件 
+dotfiles=(.tmux.conf .tmux.conf.local .vimrc .vim .zshrc .eslintrc.js .ycm_extra_conf.py)
 
 # 如果配置文件在安装之前存在放入备份文件夹
-for dotfile in dotfiles
+for dotfile in ${dotfiles}
 do
     if [[ -e ~/${dotfile} ]]; then
         mv ~/${dotfile} ~/backup
