@@ -94,7 +94,7 @@ $ brew doctor // 验证 brew 是否可用
 ```bash
 $ brew cask install google-chrome //  安装 Google 浏览器
 $ brew update                     //  更新brew
-$ brew upgrade soft               //  更新软件
+$ brew upgrade                    //  更新软件
 $ brew cleanup                    //  清除多余的下载文件
 ```
 
@@ -107,15 +107,16 @@ $ brew cleanup                    //  清除多余的下载文件
 有些 插件 可以让 `Mac` 上的文件预览更有效，比如语法高亮、`markdown` 渲染、`json` 预览等等。+
 
 ```bash
-$ brew cask install qlcolorcode
+$ brew cask install qlcolorcode        #  预览提供语法高亮
 $ brew cask install qlstephen
-$ brew cask install qlmarkdown
+$ brew cask install qlmarkdown         #  为 markdown 提供渲染
 $ brew cask install quicklook-json
 $ brew cask install qlprettypatch
 $ brew cask install quicklook-csv
 $ brew cask install betterzipql
-$ brew cask install webpquicklook
+$ brew cask install webpquicklook      #  为预览 webp 图片格式提供支持
 $ brew cask install suspicious-package
+# Run qlmanage -r in the Terminal.(This will restart QuickLook, which reloads all plugins.)
 ```
 
 ### OS X 图形界面程序

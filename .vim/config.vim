@@ -38,6 +38,7 @@ endif
 augroup filetype_indent
     autocmd!
     autocmd filetype css         setlocal ts=2 sw=2 sts=2
+    autocmd filetype sh          setlocal ts=4 sw=4 sts=4
     autocmd filetype sql         setlocal ts=4 sw=4 sts=4
     autocmd filetype html        setlocal ts=2 sw=2 sts=2
     autocmd filetype javascript  setlocal ts=2 sw=2 sts=2
