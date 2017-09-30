@@ -31,12 +31,12 @@ fi
 # .zshrc zsh的配置文件 
 # .eslintrc.js eslint（关于javascript）配置文件 
 # C语言 ycm_extra_conf.py配置文件 
+# .tern-project javascript 语义补全配置文件 
 # 数组保存需要链接的文件名
-dotfiles=(.tmux.conf .tmux.conf.local .vimrc .vim .zshrc .eslintrc.js .ycm_extra_conf.py)
+dotfiles=(.tmux.conf .tmux.conf.local .vimrc .vim .zshrc .eslintrc.js .ycm_extra_conf.py .tern-project)
 
 # 如果配置文件在安装之前存在放入备份文件夹
-for dotfile in ${dotfiles[@]}
-do
+for dotfile in ${dotfiles[@]}; do
     if [[ -e ~/${dotfile} ]]; then
         mv ~/${dotfile} ~/backup
     fi
@@ -44,11 +44,16 @@ do
     ln -s ~/dotfile/${dotfile} ~/${dotfile}
 done
 
-# 安装vim管理软件-------------------------------------------------------------
+# 安装vim插件目录-------------------------------------------------------------
 
-if [[ ! -e ~/dotfile/.vim/bundle ]]; then
-    mkdir -p ~/dotfile/.vim/bundle
-fi
-if [[ ! -e ~/.vim/bundle/Vundle.vim ]]; then
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
+# 需要的文件目录
+dires=(plugin bundle)
+
+for dir in ${dires[@]}; do
+    if [[ ! -e ~/dotfile/.vim/${dir} ]]; then
+        mkdir -p ~/dotfile/.vim/${dir}
+    fi
+done
+
+# 安装插件管理插件
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
