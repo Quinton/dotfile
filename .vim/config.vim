@@ -15,25 +15,6 @@ cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 nnoremap =oz :!ctags -R<cr>
 nnoremap =ot :IndentLinesToggle<cr>
 
-" 背景主题设置{{{ 
-" 首先需要设置iterm2终端的profiles菜单下的Colors中的
-" Color presets 设置为Solarized Dark主题
-if exists('$TMUX')  || ( $TERM == "xterm" )
-    " Mac自带终端声明为xterm -> 在终端配置高级选项栏中选择 xterm
-    " iterm2的终端声明为 xterm-new ，终端显示zsh主题为 pygmalion
-    " 以上zsh主题设置在.zshrc中配置 详见 ~/dotfile/.zshrc 
-    " 早上6点到晚上6点为light背景， 晚上6点到早上6点为dark背景
-    colorscheme molokai
-    set background=light
-else
-    " 没有在tmux下iterm2终端的zsh主题为agnoster（安装了oh-my-zsh）
-    " 当前为solarized主题，背景为暗色
-    colorscheme solarized
-    set background=dark
-endif
-
-" }}}
-
 " 缩进控制 ts{tabstop} sw{shiftwidth} sts{softtabstop}
 augroup filetype_indent
     autocmd!
