@@ -8,9 +8,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-"  基本文本操作功能的增强
-Plugin 'skywind3000/asyncrun.vim'
-
 " 为其他插件提供重复操作功能
 Plugin 'tpope/vim-repeat'
 
@@ -30,10 +27,6 @@ Plugin 'tpope/vim-abolish'
 
 " 通过gf浏览目录中不带后缀的文件
 Plugin 'tpope/vim-bundler'
-
-" rails工程文件查找文件
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
 
 " 快速移动查找
 Plugin 'Lokaltog/vim-easymotion'
@@ -64,11 +57,9 @@ Plugin 'nelstrom/vim-qargs'
 Plugin 'godlygeek/tabular'    
 let g:taabular_loaded = 1
 
-" vim 的git版本控制{{{
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'gregsexton/gitv'
-" }}}
 
 call vundle#end()
 
