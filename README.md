@@ -1,4 +1,6 @@
-# Mac 系统配置
+# Mac 系统配置以及功能介绍
+
+这是一个关于 `Mac` 系统的基本配置，和功能的配置文件，以及一些功能的介绍等等
 
 ## 系统设置
 
@@ -17,9 +19,9 @@
 
 ### Dock
 
-- 置于屏幕上的位置：左边
-- 设置 Dock 图标更小（大小随个人喜好）
-- [x] 自动显示和隐藏 Dock
+- 置于屏幕上的位置：根据自己喜好设置左下右。
+- 设置 Dock 图标更小（大小随个人喜好）。
+- [x] 自动显示和隐藏 Dock。
 
 ### Finder
 
@@ -27,15 +29,14 @@
 
 ### 菜单栏
 
-- 去掉蓝牙等无需经常使用的图标
-- 将电池显示设置为百分比
+- 去掉蓝牙等无需经常使用的图标。
+- 将电池显示设置为百分比。
 
 ### 互联网账户
 
-- 添加 iCloud 用户，同步日历，联系人和 Find my mac 等等
+- 添加 iCloud 用户，同步日历，联系人和 Find my mac 等等。
 
-
-## Xcode
+### Xcode
 
 从 `App store` 或苹果开发者网站安装 [Xcode](https://developer.apple.com/xcode/) 。
 
@@ -51,10 +52,25 @@
 
 如果你想了解 `Xcode command line tools` 包含多少可用的命令，可以到 `/Library/Developer/CommandLineTools/` 查看。
 
+## `Mac` 配置安装
+
+如果你不想自己单独配置，或嫌配置麻烦，可以通过打开终端运行 `git clone` 该配置文件库，并复制下面代码运行（不包括$）。
+
+```bash
+$ git clone https://github.com/qw9002/dotfile.git ~/
+$ cd dotfile
+$ ./startup.sh
+```
+`说明`：
+
+该配置文件中有vim配置文件、tmux复合多用窗口配置文件
+
+
+# 相关工具 Mac 工具的介绍和使用
 
 ## Homebrew
 
-包管理工具可以让你安装和更新程序变得更方便，目前在 `OS X` 系统中最受欢迎的包管理工具是 [Homebrew](https://brew.sh).
+包管理工具可以让你安装和更新程序变得更方便，目前在 `OS X` 系统中最受欢迎的包管理工具是 [Homebrew](https://brew.sh)。
 
 ### 安装
 
@@ -78,24 +94,22 @@ $ echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
 $ brew doctor // 验证 brew 是否可用
 ```
 
--
+---
 `译注`：
 
 安装完成后，`Homebrew` 会将本地 `/usr/local` 初始化为 `git` 的工作树，并将目录所有者变更为当前所操作的用户，将来 `brew` 的相关操作不需要 `sudo` 。
 
-### Homebrew Cask
 
 你已经感受到了使用 `Homebrew` 安装命令行程序的便利。那么接下来，我们将通过 `Homebrew Cask` 优雅、简单、快速的安装和管理 `OS X` 图形界面程序，比如 `Google Chrome` 和 `Dropbox`。
 
-### 安装
+### 安装命令行工具和图形界面工具
 
-安装 `Homebrew-cask` 是如此的简单直接，运行以下命令即可完成：
+安装命令行工具和图形界面工具是如此的简单直接，运行以下命令即可完成：
 
 ```bash
-$ brew cask install google-chrome //  安装 Google 浏览器
-$ brew update                     //  更新brew
-$ brew upgrade                    //  更新软件
-$ brew cleanup                    //  清除多余的下载文件
+$ brew cask install google-chrome // 安装 Google 浏览器
+$ brew upgrade                    // 更新brew管理包并更新安装软件
+$ brew cleanup                    // 清除多余的下载文件
 ```
 
 ### 搜索
@@ -153,7 +167,7 @@ $ brew cask install totalfinder
 [Solarized dark iterm colors](https://github.com/altercation/solarized) 终端主题颜色及 [Source Code Pro字体](https://github.com/adobe-fonts/source-code-pro)的下载安装配置
 
 ```bash
-$ cd               //  回到主目录中
+$ cd               //  回到用户主目录中
 $ mkdir iTerm2Conf //  创建文件夹放置文件
 $ cd iTerm2Conf    //  进入文件夹
 $ git clone https://github.com/altercation/solarized

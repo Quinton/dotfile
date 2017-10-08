@@ -53,7 +53,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
-plugins=(git colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
+plugins=(git colored-man sudo autojump colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
 
 # User configuration
 
@@ -118,3 +118,4 @@ alias -s bz2='tar -xjvf'
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
