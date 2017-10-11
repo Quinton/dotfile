@@ -61,13 +61,12 @@ Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'gregsexton/gitv'
 
-" 目录管理nerdtree{{{
+" 目录管理nerdtree
 Plugin 'scrooloose/nerdtree'
 " 设置显示／隐藏标签列表
 nnoremap <F8> :NERDTreeToggle<cr>
 ":TagbarToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") &&
-b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrows = 1
 let g:NERDTree_title="[NERDTree]"
 function!  NERDTree_Start()
@@ -78,10 +77,8 @@ function! NERDTree_IsValid()
 endfunction
 " autocmd vimenter * NERDTree
 " 当没有文件输入是打开目录树
-" autocmd StdinReadPre * let s:std_in=1
-" }}}
+autocmd StdinReadPre * let s:std_in=1
 
-}
 
 call vundle#end()
 
