@@ -61,6 +61,8 @@ Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'gregsexton/gitv'
 
+Plugin 'scrooloose/nerdtree'
+
 call vundle#end()
 
 filetype plugin indent on
