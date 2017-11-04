@@ -35,14 +35,23 @@ fi
 # 数组保存需要链接的文件名
 dotfiles=(.tmux.conf .tmux.conf.local .vimrc .vim .zshrc .eslintrc.js .ycm_extra_conf.py .tern-project)
 
+echo 
 # 如果配置文件在安装之前存在放入备份文件夹
 for dotfile in ${dotfiles[@]}; do
-    if [[ -e ~/${dotfile} ]]; then
+    if [[ -e ~/${dotfile} && -e ~/backup/${dotfile} ]]; then
+        echo "删除 ${HOME}/backup/${dotfile} 文件"
+        rm ~/backup/${dotfile}
+        echo "移动 ${HOME}/${dotfile} 文件到 backup 文件夹"
+        mv ~/${dotfile} ~/backup
+    elif [[ -e ~/${dotfile} && ! -e ~/backup/${dotfile} ]]; then
+        echo "移动 ${HOME}/${dotfile} 文件到 backup 文件夹"
         mv ~/${dotfile} ~/backup
     fi
+    echo "软链接配置文件 ${HOME}/${dotfile} 到 ${HOME}/${dotfile}"
     # 把配置文件软链接到用户主目录中
     ln -s ~/dotfile/${dotfile} ~/${dotfile}
 done
+echo 
 
 # 安装vim插件目录-------------------------------------------------------------
 
@@ -52,8 +61,10 @@ dires=(plugin bundle)
 for dir in ${dires[@]}; do
     if [[ ! -e ~/dotfile/.vim/${dir} ]]; then
         mkdir -p ~/dotfile/.vim/${dir}
+        if [[ "${dir}" = "bundle" ]]; then
+            # 安装插件管理插件
+            git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+        fi
     fi
 done
 
-# 安装插件管理插件
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

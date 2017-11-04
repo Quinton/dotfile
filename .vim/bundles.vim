@@ -12,7 +12,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'yianwillis/vimcdoc'
 
 " 打开关闭折叠效果 za
-
 "  基本文本操作功能的增强{{{
 Plugin 'skywind3000/asyncrun.vim'
 
@@ -82,25 +81,11 @@ Plugin 'nelstrom/vim-qargs'
 
 " }}}
 
-"  排版文本文件, 按照标点符号对齐...{{{
-
-" 方式对齐
-Plugin 'godlygeek/tabular'    
-let g:taabular_loaded = 1
-
-" 文本排版
-" Plugin 'hotoo/pangu.vim'    
-
-" }}}
-
 " 语法高亮检测自动补全及扩展显示{{{
 
 " YouCompleteme智能补全{{{
 Plugin 'Valloric/YouCompleteMe'
 " 只能是 #include 或已打开的文件
-" nnoremap <leader>f : YcmCompleter GoToDefinition<cr>
-" nnoremap <leader>l : YcmCompleter GoToDeclaration<cr>
-" nnoremap <leader>j  :YcmCompleter GoToDefinitionElseDeclaration<cr>
 nnoremap <Leader>o :YcmDiags<cr>
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_open_loclist_on_ycm_diags = 0
@@ -115,11 +100,6 @@ let g:ycm_warning_symbol = '⚠'
 " 关闭ycm的语法检测功能
 " 通过ALE来检测语法(防止重复显示错误内容，显示的机理相同)
 " let g:ycm_show_diagnostics_ui = 0
-"
-" let g:ycm_open_loclist_on_ycm_diags = 0
-" let g:ycm_always_populate_location_list = 0
-" let g:ycm_enable_diagnostic_signs = 0
-" let g:ycm_enable_diagnostic_highlighting = 0
 " }}}
 
 " 绝大多数语言语法高亮支持{{{
@@ -163,18 +143,6 @@ let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
 let g:lt_height = 10        
 " }}}
-
-" " swift {{{ 
-
-"     " swift的扩展文件 {{{
-"         Plugin 'cfdrake/ultisnips-swift'
-"     " }}}
-
-"     " swift的语法、高亮、智能等等 {{{
-"         Plugin 'toyamarinyon/vim-swift'
-"     " }}}
-
-" " }}}
 
 " }}}
 
@@ -254,6 +222,8 @@ let g:Powerline_stl_path_style = 'full'
 
 " 缩进显示Yggdroot/indentLine{{{
 Plugin 'Yggdroot/indentLine'
+let g:indentLine_first_char = '┊'
+let g:indentLine_enabled = 0
 " }}}
 
 " 目录管理nerdtree{{{
@@ -303,51 +273,6 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 " }}}
 
-" tagbar窗口标签显示, 通过ctags生成标签文件{{{
-" 需要下载Ctags 通过 brew install ctags
-Plugin 'majutsushi/tagbar'
-" 设置 tagbar 子窗口的位置出现在主编辑区的右边 
-let tagbar_right=1 
-" 设置标签子窗口的宽度 
-let tagbar_width=32 
-" tagbar 子窗口中不显示冗余帮助信息 
-let g:tagbar_compact=1
-" 设置 ctags 对哪些代码元素生成标签
-let g:tagbar_type_cpp = {
-            \ 'ctagstype' : 'c++',
-            \ 'kinds' : [
-            \ 'd:macros:1',
-            \ 'g:enums',
-            \ 't:typedefs:0:0',
-            \ 'e:enumerators:0:0',
-            \ 'n:namespaces',
-            \ 'c:classes',
-            \ 's:structs',
-            \ 'u:unions',
-            \ 'f:functions',
-            \ 'm:members:0:0',
-            \ 'v:global:0:0',
-            \ 'x:external:0:0',
-            \ 'l:local:0:0'
-            \ ],
-            \ 'sro'        : '::',
-            \ 'kind2scope' : {
-            \ 'g' : 'enum',
-            \ 'n' : 'namespace',
-            \ 'c' : 'class',
-            \ 's' : 'struct',
-            \ 'u' : 'union'
-            \ },
-            \ 'scope2kind' : {
-            \ 'enum'      : 'g',
-            \ 'namespace' : 'n',
-            \ 'class'     : 'c',
-            \ 'struct'    : 's',
-            \ 'union'     : 'u'
-            \ }
-            \ }
-" }}}
-
 " 进入该项目文件并通过 npm install 安装
 Plugin 'ternjs/tern_for_vim'
 
@@ -383,24 +308,13 @@ let g:SignatureMap = {
 
 " 工具拓展{{{
 
+" 方式对齐
+Plugin 'godlygeek/tabular'    
+let g:taabular_loaded = 1
+
 " emmet高速编写网页类代码 {{{
 Plugin 'mattn/emmet-vim'
 let g:emmet_html5 = 1
-" let g:user_emmet_settings = {
-"             \ 'html': {
-"             \ 'empty_element_suffix':'/>',
-"             \ },
-"             \ 'php' : {
-"             \ 'extends' : 'html',
-"             \ 'filters' : 'c',
-"             \ },
-"             \ 'xml' : {
-"             \ 'extends' : 'html',
-"             \ },
-"             \ 'haml' : {
-"             \ 'extends' : 'html',
-"             \ },
-"             \}
 
 " 帮助emmet显示snippets提示
 Plugin 'jceb/emmet.snippets'

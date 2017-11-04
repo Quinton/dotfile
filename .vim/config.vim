@@ -1,3 +1,6 @@
+" Vim自动把默认剪贴板和系统剪贴板的内容同步
+set clipboard+=unnamed
+
 " 小技巧----------------------------------------------------------------------
 inoremap {<cr> {<cr>}<esc>O
 inoremap g{<cr> {}<esc>i
@@ -10,6 +13,10 @@ inoremap <c-f> <right>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 
 " 设置快捷键
+
+" 修改单词时，修改的单词不放入寄存器
+nnoremap ciw "_ciw
+vnoremap c "_ciw
 
 " nnoremap cog :silent! let g:ale_set_loclist = 1<cr>
 nnoremap =oz :!ctags -R<cr>
