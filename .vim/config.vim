@@ -16,7 +16,7 @@ cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 
 " 修改单词时，修改的单词不放入寄存器
 nnoremap ciw "_ciw
-vnoremap c "_ciw
+vnoremap c "_c
 
 " nnoremap cog :silent! let g:ale_set_loclist = 1<cr>
 nnoremap =oz :!ctags -R<cr>
@@ -52,6 +52,7 @@ augroup filetype_indent
     autocmd filetype vim         setlocal ts=4 sw=4 sts=4
     autocmd filetype c           setlocal ts=4 sw=4 sts=4
     autocmd filetype cpp         setlocal ts=4 sw=4 sts=4
+    autocmd filetype json        setlocal ts=4 sw=4 sts=4
 augroup END
 
 " 使用标签来折叠vim配置文件
