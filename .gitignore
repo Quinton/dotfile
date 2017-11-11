@@ -40,12 +40,13 @@ syntax
 
 # the bundle of vim
 bundle
+autoload
 
 # generate file
 .vim/.netrwhist
+vimcdoc.vim
 
 # the not need of dir
-plugin
 
 # tags file
 tags

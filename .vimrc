@@ -11,9 +11,9 @@ runtime ftplugin/man.vim
 
 " 跳转到该文件，通过游标聚焦在bundles.vim路径上按gf键跳转至文件，再通过C-O回跳
 " 插件的配置文件，把基本配置和插件配置分开
-source ~/.vim/bundles.vim
+source ~/.vim/plugin/plug.vim
 " 基本方法，技巧配置
-source ~/.vim/config.vim
+source ~/.vim/plugin/config.vim
 
 " 基本配置--------------------------------------------------------------------
 

@@ -53,16 +53,6 @@ done
 
 # 安装vim插件目录-------------------------------------------------------------
 
-# 需要的文件目录
-dires=(plugin bundle)
-
-for dir in ${dires[@]}; do
-    if [[ ! -e ~/dotfile/.vim/${dir} ]]; then
-        mkdir -p ~/dotfile/.vim/${dir}
-        if [[ "${dir}" = "bundle" ]]; then
-            # 安装插件管理插件
-            git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-        fi
-    fi
-done
-
+# 安装插件管理插件
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

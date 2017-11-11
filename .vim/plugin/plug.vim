@@ -2,55 +2,52 @@ set nocompatible
 filetype off
 
 " 指定加载管理插件的文件夹地址
-" 插件的存放的根文件夹一律在~/.vim/bundle/下
-set rtp+=~/.vim/bundle/Vundle.vim
-" Vundle管理插件软件开始运行
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+" pulg管理插件软件开始运行
+call plug#begin('~/.vim/bundle')
 
 " vim中文说明文档 ./vimcdoc.sh -i安装
-Plugin 'yianwillis/vimcdoc'
+Plug 'yianwillis/vimcdoc'
 
 " 打开关闭折叠效果 za
 "  基本文本操作功能的增强{{{
-Plugin 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.vim'
 
 " 为其他插件提供重复操作功能
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 
 " 给文件加注释
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 
 " 提供遍历 [b 缓存,[q quickfix,[a args,[l location,[t tags
 " 设置 con 显示数字，coh 显示高亮，col 显示不可见字符...
 " 
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 
 " 添加／删除／改变成对符号
-Plugin 'tpope/vim-surround' " ds,ys,cs,visual mode S
+Plug 'tpope/vim-surround' " ds,ys,cs,visual mode S
 
 " 智能替换
-Plugin 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish'
 
 " 通过gf浏览目录中不带后缀的文件
-Plugin 'tpope/vim-bundler'
+Plug 'tpope/vim-bundler'
 
 " rails工程文件查找文件
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
 
 " motion{{{
 " 快速移动查找
-Plugin 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-easymotion'
 map <leader> <plug>(easymotion-prefix)
 
 " 模式显示所有匹配项
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'haya14busa/incsearch-easymotion.vim'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
 map /  <plug>(incsearch-forward)
 map g/ <plug>(incsearch-stay)
 
-Plugin 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
 function! s:config_easyfuzzymotion(...) abort
     return extend(copy({
                 \   'converters': [incsearch#config#fuzzyword#converter()],
@@ -65,26 +62,26 @@ noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 " }}}
 
 " 为下面动作做基础
-Plugin 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-user'
 
 " 全局动作 ae, ie
-Plugin 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-entire'
 
 " 正则匹配单词的一部分，提供操作可以用operate + (? or i)/（正则模式类型）
-Plugin 'kana/vim-textobj-lastpat'
+Plug 'kana/vim-textobj-lastpat'
 
 " 可视模式下用*号匹配字符串
-Plugin 'nelstrom/vim-visual-star-search'
+Plug 'nelstrom/vim-visual-star-search'
 
 " 筛选符合条件的argslist文件并保存到args中去
-Plugin 'nelstrom/vim-qargs'
+Plug 'nelstrom/vim-qargs'
 
 " }}}
 
 " 语法高亮检测自动补全及扩展显示{{{
 
 " YouCompleteme智能补全{{{
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 " 只能是 #include 或已打开的文件
 nnoremap <Leader>o :YcmDiags<cr>
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -103,15 +100,15 @@ let g:ycm_warning_symbol = '⚠'
 " }}}
 
 " 绝大多数语言语法高亮支持{{{
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 " let  g:polyglot_disabled  = [ ' css ' ]
 " }}}
 
 " 语法检测{{{
 
-Plugin 'htacg/tidy-html5'
+Plug 'htacg/tidy-html5'
 
-Plugin 'w0rp/ale'
+Plug 'w0rp/ale'
 let g:ale_linters = {
             \   'javascript': ['eslint'],
             \   'html': ['tidy']
@@ -126,9 +123,9 @@ let g:ale_sign_warning='⚠'
 
 " snippets片段扩展{{{
 " 通过VimL的支持
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 " 需要共通过Python的支持
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetDirectories  = ["UltiSnips"]
 let g:UltiSnipsSnippetsDir         = ["mysnips"] " '~/.vim/bundle/ultisnips/mysnips'
 let g:UltiSnipsExpandTrigger       = "<Tab>"
@@ -138,7 +135,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 " }}}
 
 " 显示quickfix列表和location列表{{{
-Plugin 'Valloric/ListToggle'
+Plug 'Valloric/ListToggle'
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
 let g:lt_height = 10        
@@ -149,7 +146,7 @@ let g:lt_height = 10
 " 文件搜索，匹配，定位，版本控制{{{
 
 " 文件搜索等等{{{
-Plugin 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim'
 " }}}
 
 "  安装cscope 配置程序目录及生成数据库文件，支持 c 语言{{{
@@ -173,7 +170,7 @@ endif
 " }}}
 
 " 内容匹配 Ag 类似grep{{{
-Plugin 'rking/ag.vim'
+Plug 'rking/ag.vim'
 let g:ag_prg="/usr/local/bin/ag --vimgrep"
 let g:ag_working_path_mode="r"
 let g:ag_highlight=1
@@ -181,17 +178,17 @@ let g:ag_format="%f:%l:%m"
 " }}}
 
 " vim 的git版本控制{{{
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-fugitive'
-Plugin 'gregsexton/gitv'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-fugitive'
+Plug 'gregsexton/gitv'
 " }}}
 
 " 历史回溯 {{{
-Plugin 'sjl/gundo.vim'
+Plug 'sjl/gundo.vim'
 " }}}
 
 " " 文件搜索等{{{
-" Plugin 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 "     let g:ctrlp_map = '<c-\>'
 "     " let g:ctrlp_cmd = 'CtrlP'
 "     let g:ctrlp_working_path_mode = 'ra'
@@ -209,7 +206,7 @@ Plugin 'sjl/gundo.vim'
 " 窗口显示管理，美化布置{{{
 
 " 状态栏效果显示Powerline{{{
-Plugin 'lokaltog/vim-powerline'
+Plug 'lokaltog/vim-powerline'
 " set guifont=PowerlineSymbols\ for\ Powerline
 set t_Co=256
 set encoding=utf-8
@@ -221,13 +218,13 @@ let g:Powerline_stl_path_style = 'full'
 " }}}
 
 " 缩进显示Yggdroot/indentLine{{{
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 let g:indentLine_first_char = '┊'
 let g:indentLine_enabled = 0
 " }}}
 
 " 目录管理nerdtree{{{
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 " 设置显示／隐藏标签列表 
 nnoremap <F8> :NERDTreeToggle<cr> 
 ":TagbarToggle<CR> 
@@ -248,7 +245,7 @@ endfunction
 " 界面颜色主题{{{
 
 " solarized{{{
-Plugin 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 let g:solarized_termcolors = 256
 let g:solarized_termtrans  = 1
 " let g:solarized_degrade    = 1
@@ -260,7 +257,7 @@ let g:solarized_visibility = "normal"
 " }}}
 
 " molokai{{{
-Plugin 'tomasr/molokai'
+Plug 'tomasr/molokai'
 let g:molokai_original = 1
 let g:rehash256 = 1
 " }}}
@@ -269,16 +266,16 @@ let g:rehash256 = 1
 
 " 标签文件自动生成和语法突出显示easytags{{{
 " 需要下载Ctags
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
 " }}}
 
 " 进入该项目文件并通过 npm install 安装
-Plugin 'ternjs/tern_for_vim'
+Plug 'ternjs/tern_for_vim'
 
 " visual mark可视标签{{{
 " 标签显示
-Plugin 'kshenoy/vim-signature'
+Plug 'kshenoy/vim-signature'
 let g:SignatureMap = {
             \ 'Leader'             :  "m",
             \ 'PlaceNextMark'      :  "m,",
@@ -309,29 +306,29 @@ let g:SignatureMap = {
 " 工具拓展{{{
 
 " 方式对齐
-Plugin 'godlygeek/tabular'    
+Plug 'godlygeek/tabular'    
 let g:taabular_loaded = 1
 
 " emmet高速编写网页类代码 {{{
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 let g:emmet_html5 = 1
 
 " 帮助emmet显示snippets提示
-Plugin 'jceb/emmet.snippets'
+Plug 'jceb/emmet.snippets'
 " }}}
 
 " makrdown{{{
-Plugin 'iamcco/mathjax-support-for-mkdp'
-Plugin 'iamcco/markdown-preview.vim'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
 let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
 " or
 let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
 " }}}
 
-Plugin 'eshion/vim-sync'
+Plug 'eshion/vim-sync'
 
 " }}}
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
