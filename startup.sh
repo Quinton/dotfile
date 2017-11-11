@@ -35,7 +35,6 @@ fi
 # 数组保存需要链接的文件名
 dotfiles=(.tmux.conf .tmux.conf.local .vimrc .vim .zshrc .eslintrc.js .ycm_extra_conf.py .tern-project)
 
-echo 
 # 如果配置文件在安装之前存在放入备份文件夹
 for dotfile in ${dotfiles[@]}; do
     if [[ -e ~/${dotfile} && -e ~/backup/${dotfile} ]]; then
@@ -51,7 +50,6 @@ for dotfile in ${dotfiles[@]}; do
     # 把配置文件软链接到用户主目录中
     ln -s ~/dotfile/${dotfile} ~/${dotfile}
 done
-echo 
 
 # 安装vim插件目录-------------------------------------------------------------
 
