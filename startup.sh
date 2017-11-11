@@ -51,8 +51,6 @@ for dotfile in ${dotfiles[@]}; do
     ln -s ~/dotfile/${dotfile} ~/${dotfile}
 done
 
-# 安装vim插件目录-------------------------------------------------------------
-
-# 安装插件管理插件
+# 安装 vim 插件管理插件
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
