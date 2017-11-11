@@ -241,6 +241,7 @@ endfunction
 " 当没有文件输入是打开目录树
 " autocmd StdinReadPre * let s:std_in=1
 " }}}
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " 界面颜色主题{{{
 
@@ -261,6 +262,8 @@ Plug 'tomasr/molokai'
 let g:molokai_original = 1
 let g:rehash256 = 1
 " }}}
+
+Plug 'gosukiwi/vim-atom-dark'
 
 " }}}
 
@@ -326,6 +329,7 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 " }}}
 
 Plug 'eshion/vim-sync'
+Plug 'terryma/vim-multiple-cursors'
 
 " }}}
 
