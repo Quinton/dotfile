@@ -40,6 +40,7 @@ Plug 'vim-ruby/vim-ruby'
 " 快速移动查找
 Plug 'Lokaltog/vim-easymotion'
 map <leader> <plug>(easymotion-prefix)
+onoremap f <leader>f
 
 " 模式显示所有匹配项
 Plug 'haya14busa/incsearch.vim'
@@ -206,7 +207,7 @@ Plug 'sjl/gundo.vim'
 " 窗口显示管理，美化布置{{{
 
 " 状态栏效果显示Powerline{{{
-Plug 'lokaltog/vim-powerline'
+Plug 'powerline/powerline'
 " set guifont=PowerlineSymbols\ for\ Powerline
 set t_Co=256
 set encoding=utf-8
@@ -330,6 +331,8 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 
 Plug 'eshion/vim-sync'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1
 
 " }}}
 
