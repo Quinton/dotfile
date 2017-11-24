@@ -43,6 +43,7 @@ bundle
 
 # generate file
 .vim/.netrwhist
+.vim/autoload/plug.vim
 
 # the not need of dir
 plugin
