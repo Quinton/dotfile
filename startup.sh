@@ -12,7 +12,7 @@ brew cask install iterm2 # iterm2 安装
 brew install tmux        # 终端复用窗口拓展
 brew install zsh         # 最新 zsh 安装
 brew install git         # 版本控制安装
-sudo chsh -s /bin/zsh    # 切换系统默认到 bash 为 zsh
+sudo chsh -s `which zsh` # 切换系统默认到 bash 为 zsh
 
 # 安装 oh-my-zsh 插件
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
