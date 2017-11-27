@@ -333,10 +333,11 @@ Plug 'eshion/vim-sync'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
+
 Plug 'cosminadrianpopescu/vim-sql-workbench'
-let g:sw_config_dir = '~/.sqlworkbench/workbench.settings'
-" let g:sw_exe
-" let g:sw_cache
+" let g:sw_config_dir = '.sqlworkbench/'
+let g:sw_exe = '/Applications/SQLWorkbenchJ.app/Contents/Java/sqlwbconsole.sh'
+" let g:sw_cache = '.sqlworkbench/'
 " }}}
 
 call plug#end()
