@@ -53,7 +53,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
-plugins=(git colored-man sudo autojump colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
+plugins=(git web-search colored-man sudo autojump colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
 
 # User configuration
 

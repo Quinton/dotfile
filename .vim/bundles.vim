@@ -92,7 +92,9 @@ Plugin 'nelstrom/vim-qargs'
 Plugin 'Valloric/YouCompleteMe'
 " 只能是 #include 或已打开的文件
 nnoremap <Leader>o :YcmDiags<cr>
+" 自动关闭预览窗口
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_open_loclist_on_ycm_diags = 0
 let g:ycm_key_list_select_completion   = ['<C-n>'] ", '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>'] ", '<Up>']
@@ -102,10 +104,21 @@ let g:ycm_confirm_extra_conf=0
 " 通过ycm语法检测显示错误符号和警告符号⚠️
 let g:ycm_error_symbol   = '✗'
 let g:ycm_warning_symbol = '⚠'
+" disable ycm diags, provided by ale
+" let g:ycm_always_populate_location_list = 0
 " 关闭ycm的语法检测功能
 " 通过ALE来检测语法(防止重复显示错误内容，显示的机理相同)
 " let g:ycm_show_diagnostics_ui = 0
+" let g:ycm_add_preview_to_completeopt = 1
+"let g:ycm_filetype_blacklist = { 'python':1 }
+" let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_complete_in_comments = 0
+" map <leader>f :YcmCompleter FixIt<CR>
+" map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " }}}
+
+" 进入该项目文件并通过 npm install 安装
+Plugin 'ternjs/tern_for_vim'
 
 " 绝大多数语言语法高亮支持{{{
 Plugin 'sheerun/vim-polyglot'
@@ -117,9 +130,12 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'htacg/tidy-html5'
 
 Plugin 'w0rp/ale'
+" c 或 c++ 需要指定语法分析工具，否则会显示重复的两条数据
 let g:ale_linters = {
             \   'javascript': ['eslint'],
-            \   'html': ['tidy']
+            \   'html': ['tidy'],
+            \   'c': ['clang'],
+            \   'cpp': ['clang']
             \}
 let g:ale_sign_error='✗'
 let g:ale_sign_warning='⚠'                   
@@ -277,9 +293,6 @@ let g:rehash256 = 1
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 " }}}
-
-" 进入该项目文件并通过 npm install 安装
-Plugin 'ternjs/tern_for_vim'
 
 " visual mark可视标签{{{
 " 标签显示
